@@ -1,12 +1,14 @@
-let n = 6;
+let arr = [5, 9, 7, 10];
+let divisor = 5;
 
-function solution(n) {
-  for (let count = 0; count < 10; count++) {
-    if (n === 1) return count;
-    n % 2 === 0 ? (n /= 2) : (n = n * 3 + 1);
-    console.log(n);
-    console.log(`${n} and ${count}`);
-  }
-  return -1;
+function solution(arr, divisor) {
+  let answer;
+  answer = arr.filter((i) => i % divisor === 0);
+  return answer.length === 0
+    ? [-1]
+    : answer.sort(function (a, b) {
+        return a - b;
+      });
 }
-solution(n);
+
+solution(arr, divisor);
