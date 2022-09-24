@@ -1,12 +1,8 @@
-let n = 6;
-
-function solution(n) {
-  for (let count = 0; count < 10; count++) {
-    if (n === 1) return count;
-    n % 2 === 0 ? (n /= 2) : (n = n * 3 + 1);
-    console.log(n);
-    console.log(`${n} and ${count}`);
-  }
-  return -1;
+let a = [1, 2, 3, 4];
+let b = [-3, -1, 0, 2];
+function solution(a, b) {
+  let c = a.map((item, i) => item * b[i]);
+  c.reduce((acc, curr) => acc + curr);
+  console.log(c);
 }
-solution(n);
+solution(a, b);
