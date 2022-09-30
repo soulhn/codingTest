@@ -1,6 +1,6 @@
 function solution(n) {
   let answer = [];
-  while (n !== 0) {
+  while (n) {
     a = n % 3;
     answer.push(a);
     n = parseInt(n / 3);
