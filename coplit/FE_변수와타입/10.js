@@ -1,2 +1,3 @@
-// TODO : 키워드 let을 사용하여 변수 course를 선언하세요.
-let course;
+function showTime(hour, min, sec) {
+  return `현재 시각은 ${hour}시 ${min}분 ${sec}초 입니다.`;
+}
