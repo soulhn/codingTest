@@ -27,3 +27,15 @@ function countAllCharacters(str) {
   }
   return obj;
 }
+
+//복습해서 다시 푼 코드
+function countAllCharacters(str) {
+  let answer = {};
+  for (let letter of str) {
+    if (!(letter in answer)) {
+      answer[letter] = 0;
+    }
+    answer[letter]++;
+  }
+  return answer;
+}

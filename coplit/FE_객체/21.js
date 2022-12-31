@@ -1,5 +1,30 @@
 // 문자열을 입력받아 가장 많이 반복되는 문자(letter)를 리턴해야 합니다.
 
+//12.31일 복습 겸 다시 푼 코드
+//가장 많이 반복되는 문자 리턴
+//띄어쓰기 X
+//가장 많이 반복되는 문자가 다수라면? 가장 먼저 횟수에 도달한 문자 리턴
+//빈 문자열 들어오면 빈 문자열 리턴?
+function mostFrequentCharacter(str) {
+  let obj = {};
+  let maxNum = 0;
+  let maxStr = "";
+  for (let letter of str) {
+    if (letter === " ") {
+      continue;
+    }
+    if (!(letter in obj)) {
+      obj[letter] = 0;
+    }
+    obj[letter]++;
+    if (maxNum < obj[letter]) {
+      maxNum = obj[letter];
+      maxStr = letter;
+    }
+  }
+  return maxStr;
+}
+
 //리팩토링 코드(해답 코드)
 function mostFrequentCharacter(str) {
   let obj = { mostCount: 0, mostFrequent: "" }; //카운트와 빈문자열 선언
