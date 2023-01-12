@@ -1,3 +1,8 @@
+//reduce 이해하고 리팩토링
+function getLongestElement(arr) {
+  return arr.reduce((acc, cur) => (acc.length < cur.length ? cur : acc), "");
+}
+
 //래퍼런스보고 줄인 코드
 function getLongestElement(arr) {
   return arr.reduce((a, b) => {

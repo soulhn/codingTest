@@ -27,3 +27,9 @@ function calculateScore(records, value) {
 
   return sum;
 }
+
+//리팩토링
+function calculateScore(records, value) {
+  //객체의 animal 속성이 value랑 같으면 score 값 모두 더해!
+  return records.reduce((acc, cur) => (cur.animal === value ? acc + cur.score : acc), 0);
+}
