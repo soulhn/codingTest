@@ -22,3 +22,16 @@ function getSquaredElementsAtProperty(obj, property) {
 
   return maybeArr.map(square);
 }
+
+let key = [2, 1, 5];
+
+function square(number) {
+  return number * number;
+}
+
+console.log(key.map(square));
+console.log(
+  key.map((num) => {
+    return num * num;
+  })
+);
