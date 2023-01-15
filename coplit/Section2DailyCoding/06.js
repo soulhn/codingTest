@@ -1,3 +1,4 @@
+//처음으로 푼 코드
 function letterCapitalize(str) {
   return str
     .split(" ")
@@ -6,3 +7,5 @@ function letterCapitalize(str) {
     })
     .join(" ");
 }
+
+//substr(1) 코드 공부하고 추가하기

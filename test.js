@@ -1,10 +1,15 @@
-let before = "olleh";
-let after = "hello";
-
-//before의 글자 하나씩 돌면서
-//after에서 하나씩 지우기
-function solution(before, after) {
-  return before.split("").sort().join("") === after.split("").sort().join("") ? 1 : 0;
+const arr = [
+  ["some", "like"],
+  ["some", "dislike"],
+];
+function convertListToObject(arr) {
+  return arr.reduce((acc, cur) => {
+    // console.log(acc[cur[0]]);
+    if (cur.length === 2 && !(acc[cur[0]] in acc)) {
+      acc[cur[0]] = cur[1];
+    }
+    return acc;
+  }, {});
 }
 
-console.log(solution(before, after));
+convertListToObject(arr);
