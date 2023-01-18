@@ -1,5 +1,6 @@
 let arr = ["YCDt", "oao", "unI"];
 
+console.log(arr);
 function readVertically(arr) {
   let temp = [];
   for (let i = 0; i < arr.length; i++) {
@@ -13,7 +14,7 @@ function readVertically(arr) {
     }
     console.log(temp);
   }
-  return temp;
+  return temp.join("");
 
   // let result = "";
   // for (let i = 0; i < temp.length; i++) {

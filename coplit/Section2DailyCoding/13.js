@@ -15,22 +15,15 @@ function readVertically(arr) {
   }
   return result;
 }
-
 //래퍼런스 코드
 function readVertically(arr) {
   let temp = [];
-  //배열의 길이 만큼 반복
   for (let i = 0; i < arr.length; i++) {
-    //str에 배열에 들어온 문자열하나 할당
     let str = arr[i];
-    //문자열 하나의 길이 만큼 반복
     for (let j = 0; j < str.length; j++) {
-      //temp의 길이와 str의 j번째 요소의 idx와 같다면
       if (temp.length === j) {
-        //temp에 str[j]를 넣는다
         temp.push(str[j]);
       } else {
-        //temp의 길이와 str의 j번째 요소의 idx가 같지않으면
         temp[j] = temp[j] + str[j];
       }
     }
@@ -42,4 +35,27 @@ function readVertically(arr) {
   }
 
   return result;
+}
+
+//래퍼런스 코드 리팩토링?
+function readVertically(arr) {
+  let temp = [];
+  //여기 for문이 새로로 읽어줌
+  //arr을 길이 만큼 반복
+  for (let i = 0; i < arr.length; i++) {
+    //str에 arr의 요소 하나를 넣는다.
+    let str = arr[i];
+    //요소하나의 길이만큼 반복
+    for (let j = 0; j < str.length; j++) {
+      //temp의 길이와 str의 index가 같다면, temp안에 존재 하지 않을떄
+      if (temp.length === j) {
+        temp.push(str[j]);
+        //temp에 str[j]를 새로 넣어준다. //temp 안에 존재한다면 그냥 뒤에다 더 붙였줌
+      } else {
+        temp[j] = temp[j] + str[j];
+      }
+    }
+  }
+
+  return temp.join("");
 }
