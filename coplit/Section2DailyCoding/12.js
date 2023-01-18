@@ -1,12 +1,4 @@
-let arr = [
-  ["A", "A", "A", "A", "A"],
-  ["A", "B", "A", "A", "A"],
-  ["A", "A", "A", "A", "A"],
-  ["A", "A", "A", "A", "A"],
-  ["A", "A", "A", "A", "A"],
-];
-//요소를 순회하면서 문자열로 변환
-//문자열에
+//처음으로 푼 코드
 function findBugInApples(arr) {
   let row = 0;
   let column = 0;
@@ -21,4 +13,14 @@ function findBugInApples(arr) {
   return [row, column];
 }
 
-console.log(findBugInApples(arr));
+//래퍼런스 코드
+//전체 순회 사용
+function findBugInApples(arr) {
+  for (let i = 0; i < arr.length; i += 1) {
+    for (let j = 0; j < arr[i].length; j += 1) {
+      if (arr[i][j] === "B") {
+        return [i, j];
+      }
+    }
+  }
+}
