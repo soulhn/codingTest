@@ -40,7 +40,7 @@ function readVertically(arr) {
 //래퍼런스 코드 리팩토링?
 function readVertically(arr) {
   let temp = [];
-  //여기 for문이 새로로 읽어줌
+  //여기 for문이 세로로 읽어줌
   //arr을 길이 만큼 반복
   for (let i = 0; i < arr.length; i++) {
     //str에 arr의 요소 하나를 넣는다.
