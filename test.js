@@ -8,7 +8,7 @@ function decryptCaesarCipher(str, secret) {
     if (el === 32) return " ";
     let ascNum = el - secret;
     if (ascNum < 97) {
-      asc += 25;
+      ascNum += 25;
     }
     return String.fromCharCode(ascNum);
   });
