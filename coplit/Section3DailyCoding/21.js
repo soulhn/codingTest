@@ -1,6 +1,4 @@
-// const arr = [-1, -2, 5, 7];
-const arr = [3, 4, 5];
-
+//내가 푼 코드
 const largestProductOfThree = function (arr) {
   //길이가 3일 때
   if (arr.length === 3) return arr.reduce((acc, cur) => acc * cur);
@@ -14,4 +12,14 @@ const largestProductOfThree = function (arr) {
   }
 };
 
-console.log(largestProductOfThree(arr));
+//래퍼런스 코드
+const largestProductOfThree2 = function (arr) {
+  //얕은 복사 후 정렬
+  const sorted = arr.slice().sort((a, b) => a - b);
+  const len = arr.length;
+  //가장 큰수 3개의 곱
+  const candi1 = sorted[len - 1] * sorted[len - 2] * sorted[len - 3];
+  //음수가 존재 할 경우 음수*음수 * 가장 큰수
+  const candi2 = sorted[len - 1] * sorted[0] * sorted[1];
+  return Math.max(candi1, candi2);
+};
