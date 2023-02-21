@@ -1,2 +1,13 @@
 programmers/**/test.js
+.test.js
+/**/test.js
+**/test.js
 test.js
+./test.js
+
+
+.DS_Store
+.DS_Store
+._.DS_Store
+**/.DS_Store
+**/._.DS_Store
