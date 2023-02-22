@@ -78,3 +78,12 @@ return base.length === sSet.length;
 
 const sSet2 = new Set([...sample, ...base]);
 return base.length === sSet2.size;
+
+const isSubsetOf4 = function (base, sample) {
+  //set 시간 복잡도 1 배열 n
+  let setBase = new Set(base);
+  for (let el of sample) {
+    if (!setBase.has(el)) return false;
+  }
+  return true;
+};
