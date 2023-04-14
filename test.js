@@ -1,19 +1,33 @@
-// const arr = [-1, -2, 5, 7];
-//2
+const board = [
+  [0, 0, 1],
+  [1, 0, 1],
+  [1, 1, 1],
+];
+const operation = "DDR";
 
-const bubbleSort = function (arr) {
-  // let isSorted = false;
-  for (let i = 0; i < arr.length - 1; i++) {
-    // isSorted = true;
-    for (let j = 0; j < arr.length - 1 - i; j++) {
-      if (arr[j] > arr[j + 1]) {
-        // isSorted = false;
-        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
-      }
+function boardGame(board, operation) {
+  //4*4라면 MAX = 4
+  const MAX = board.length;
+  //행렬
+  let row = 0;
+  let column = 0;
+  let isOut = false;
+  let count = 0;
+  const controller = {
+    U: () => (row -= 1),
+    D: () => (row += 1),
+    L: () => (column -= 1),
+    R: () => (column += 1),
+  };
+  operation.split("").forEach((e) => {
+    console.log(controller[e]());
+    console.log(row, column);
+    if (row < 0 || column < 0 || row === MAX - 1 || column === MAX) {
+      isOut = true;
     }
-    // if (isSorted) break;
-  }
-  return arr;
-};
+    count += board[row][column];
+  });
+  return isOut ? "OUT" : count;
+}
 
-console.log(bubbleSort([20, -10, -11, 2, 4, 299]));
+boardGame(board, operation);
