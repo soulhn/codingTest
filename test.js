@@ -1,33 +1,55 @@
-const board = [
-  [0, 0, 1],
-  [1, 0, 1],
-  [1, 1, 1],
-];
-const operation = "DDR";
-
-function boardGame(board, operation) {
-  //4*4라면 MAX = 4
-  const MAX = board.length;
-  //행렬
-  let row = 0;
-  let column = 0;
-  let isOut = false;
-  let count = 0;
-  const controller = {
-    U: () => (row -= 1),
-    D: () => (row += 1),
-    L: () => (column -= 1),
-    R: () => (column += 1),
-  };
-  operation.split("").forEach((e) => {
-    console.log(controller[e]());
-    console.log(row, column);
-    if (row < 0 || column < 0 || row === MAX - 1 || column === MAX) {
-      isOut = true;
-    }
-    count += board[row][column];
-  });
-  return isOut ? "OUT" : count;
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
 }
 
-boardGame(board, operation);
+class Queue {
+  constructor() {
+    this.head = null;
+    this.tail = null;
+  }
+  enqueue(newValue) {
+    const newNode = new Node(newValue);
+    if (this.head === null) {
+      this.head = this.tail = newNode;
+    } else {
+      this.tail.next = newNode;
+      this.tail = newNode;
+    }
+  }
+
+  dequeue() {
+    const value = this.head.value;
+    this.head = this.head.next;
+    return value;
+  }
+
+  peek() {
+    return this.head.value;
+  }
+}
+
+function solution(priorities, location) {
+  const quequ = new Queue();
+  for (let i = 0; i < priorities.length; i++) {
+    quequ.enqueue([priorities[i], i]);
+  }
+
+  priorities.sort((a, b) => b - a);
+
+  let count = 0;
+  while (true) {
+    const currentValue = quequ.peek();
+    if (currentValue[0] < priorities[count]) {
+      quequ.enqueue(quequ.dequeue());
+    } else {
+      const value = quequ.dequeue();
+      count += 1;
+      if (location === value[1]) {
+        return count;
+      }
+    }
+  }
+}
